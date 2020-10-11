@@ -11,8 +11,8 @@ int main() {
         x[n]=-10 + std::rand()/((RAND_MAX + 1u)/21);
         std::cout<<x[n]<<std::endl;
     }
-    std::cout<<x[6]-x[7]-x[4]<<::std::endl;
-   int a=0;
+    std::cout<<"The difference between 6,7 and 4 elements: "<<x[6]-x[7]-x[4]<<::std::endl;
+    int a=0;
     std::cout<<"Enter the length of the 1st array (>10)"<<std::endl;
     std::cin>>a;
     int* array = new int[a];
@@ -51,47 +51,54 @@ int main() {
     int m=0;
     std::cin>>m;
     std::vector<int> vec(m);
-    for (int n=0; n!=m; n++)
+    int number=0;
+    for (int n : vec)
     {
         std::cout<<"Enter the value"<<std::endl;
-        std::cin>>vec[n];
+        std::cin>>vec[number];
+        number++;
     }
+    number=0;
     std::cout<<"Array's values:"<<std::endl;
-    for (int n=0; n!=m; n++)
+    for (int n : vec)
     {
-        std::cout<<vec[n]<<std::endl;
+        std::cout<<n<<std::endl;
     }
     vec.push_back(13);
     std::cout<<"Array's values after 1st conversions:"<<std::endl;
-    for (int n=0; n!=m+1; n++)
+    for (int n : vec)
     {
-        std::cout<<vec[n]<<std::endl;
+        std::cout<<n<<std::endl;
     }
     std::cout<<"Array's values after 2nd conversions:"<<std::endl;
-    for (int n=0; n!=m+1; n++)
+    for (int n : vec)
     {
-        vec[n]=vec[n]/vec[m];
-        std::cout<<vec[n]<<std::endl;
+        vec[number]=vec[number]/vec[m];
+        std::cout<<vec[number]<<std::endl;
+        number++;
     }
+    number=0;
     bool check=false;
     int number_of_1st_element=0;
     std::cout<<"Array's values after 3st conversions:"<<std::endl;
-    for (int n=0; n!=m+1; n++)
+    for (int n : vec)
     {
-        if ((check==false)&&(vec[n]>2))
+        if ((check==false)&&(vec[number]>2))
         {
             check=true;
-            number_of_1st_element=n;
+            number_of_1st_element=number;
         }
+        number++;
     }
     vec.erase(vec.begin()+number_of_1st_element);
-    for (int n=0; n!=m; n++)
+    for (int n : vec)
     {
-        std::cout<<vec[n]<<std::endl;
+        std::cout<<n<<std::endl;
     }
     std::string input_string;
     std::cout<<"Enter the string"<<std::endl;
-    std::cin>>input_string;
+    std::cin.ignore(1,'/n');
+    std::getline(std::cin, input_string);
     std::cout<<"Current string:"<<input_string<<std::endl;
     std::cout<<"Length of the string: "<<input_string.length()<<std::endl;
     int count_j=0;
@@ -101,15 +108,23 @@ int main() {
             count_j+=1;
     }
     std::cout<<"Proportion of the letter 'j': "<< static_cast<float>(count_j)/input_string.length()<<std::endl;
-    std::cout<<"Enter l1 and l2"<<std::endl;
     int l1=0,
-        l2=0;
-    std::cin>>l1>>l2;
+            l2=0;
+    std::cout<<"Enter l1"<<std::endl;
+    std::cin>>l1;
+    std::cout<<"Enter l2"<<std::endl;
+    std::cin>>l2;
     std::cout<<input_string.substr(l1, l2-l1+1)<<std::endl;
-    std::cout<<"Can you can a can as a canner can can a can?"<<std::endl;
+    std::string CanString="Can you can a can as a canner can can a can?";
+    std::cout<<CanString<<std::endl;
+    std::string UserString;
     std::cout<<"Enter the replacement"<<std::endl;
-    std::string user_string;
-    std::cin>>user_string;
-    std::cout<<user_string<<" you "<<user_string<<" a "<<user_string<<" as a "<<user_string<<"ner "<<user_string<<' '<<user_string<<" a "<<user_string<<"?";
+    std::cin.ignore(1,'/n');
+    std::getline(std::cin, UserString);
+    while(CanString.find("can")!=std::string::npos)
+    {
+        CanString.replace(CanString.find("can"), 3, UserString);
+    }
+    std::cout<<CanString<<std::endl;
     return 0;
 }
