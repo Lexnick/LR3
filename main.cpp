@@ -12,10 +12,10 @@ int main() {
         std::cout<<x[n]<<std::endl;
     }
     std::cout<<x[6]-x[7]-x[4]<<::std::endl;
-    int a=0;
+   int a=0;
     std::cout<<"Enter the length of the 1st array (>10)"<<std::endl;
     std::cin>>a;
-    int array[a];
+    int* array = new int[a];
     for (int n=0; n!=a; n++)
     {
         std::cout<<"Enter the value for number "<<n<<std::endl;
@@ -34,15 +34,19 @@ int main() {
         std::cout<<array[n]<<std::endl;
     }
     int k1,
-        k2,
-        sum=0;
-    std::cout<<"Enter k1 and k2"<<std::endl;
-    std::cin>>k1>>k2;
+            k2,
+            sum=0;
+    std::cout<<"Enter k1"<<std::endl;
+    std::cin>>k1;
+    std::cout<<"Enter k2"<<std::endl;
+    std::cin>>k2;
     for (int n=k1; n!=k2+1; n++)
     {
         sum+=array[n];
     }
-    std::cout<<"Sum of elements from k1 to k2:"<<sum<<std::endl;
+    std::cout<<"Sum of elements from k1 to k2: "<<sum<<std::endl;
+    delete[] array;
+    array= nullptr;
     std::cout<<"Enter the length of the 2nd array(>5)"<<std::endl;
     int m=0;
     std::cin>>m;
