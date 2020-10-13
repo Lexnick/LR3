@@ -26,7 +26,7 @@ int main() {
     {
         std::cout<<array[n]<<std::endl;
     }
-    std::cout<<"Array's values after conversions="<<std::endl;
+    std::cout<<"Array's values after conversions:"<<std::endl;
     for (int n=0; n!=a; n++)
     {
         if (array[n]%2==0)
@@ -51,14 +51,11 @@ int main() {
     int m=0;
     std::cin>>m;
     std::vector<int> vec(m);
-    int number=0;
-    for (int n : vec)
+    for (int &n : vec)
     {
         std::cout<<"Enter the value"<<std::endl;
-        std::cin>>vec[number];
-        number++;
+        std::cin>>n;
     }
-    number=0;
     std::cout<<"Array's values:"<<std::endl;
     for (int n : vec)
     {
@@ -71,19 +68,18 @@ int main() {
         std::cout<<n<<std::endl;
     }
     std::cout<<"Array's values after 2nd conversions:"<<std::endl;
-    for (int n : vec)
+    for (int &n : vec)
     {
-        vec[number]=vec[number]/vec[m];
-        std::cout<<vec[number]<<std::endl;
-        number++;
+        n=n/vec[m];
+        std::cout<<n<<std::endl;
     }
-    number=0;
     bool check=false;
+    int number=0;
     int number_of_1st_element=0;
     std::cout<<"Array's values after 3st conversions:"<<std::endl;
-    for (int n : vec)
+    for (int &n : vec)
     {
-        if ((check==false)&&(vec[number]>2))
+        if ((check==false)&&(n>2))
         {
             check=true;
             number_of_1st_element=number;
@@ -128,3 +124,4 @@ int main() {
     std::cout<<CanString<<std::endl;
     return 0;
 }
+
