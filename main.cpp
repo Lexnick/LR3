@@ -91,9 +91,11 @@ int main() {
     {
         std::cout<<n<<std::endl;
     }
+
+
     std::string input_string;
     std::cout<<"Enter the string"<<std::endl;
-    std::cin.ignore(1,'/n');
+    std::cin.ignore();
     std::getline(std::cin, input_string);
     std::cout<<"Current string:"<<input_string<<std::endl;
     std::cout<<"Length of the string: "<<input_string.length()<<std::endl;
@@ -115,7 +117,7 @@ int main() {
     std::cout<<CanString<<std::endl;
     std::string UserString;
     std::cout<<"Enter the replacement"<<std::endl;
-    std::cin.ignore(1,'/n');
+    std::cin.ignore();
     std::getline(std::cin, UserString);
     while(CanString.find("can")!=std::string::npos)
     {
