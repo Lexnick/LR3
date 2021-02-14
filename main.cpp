@@ -119,10 +119,11 @@ int main() {
     std::cout<<"Enter the replacement"<<std::endl;
     std::cin.ignore();
     std::getline(std::cin, UserString);
-    while(CanString.find("can")!=std::string::npos)
+    while(CanString.find(" can ")!=std::string::npos)
     {
-        CanString.replace(CanString.find("can"), 3, UserString);
+        CanString.replace(CanString.find(" can ")+1, 3, UserString);
     }
+    CanString.replace(CanString.find(" can?")+1, 3, UserString);
     std::cout<<CanString<<std::endl;
     return 0;
 }
